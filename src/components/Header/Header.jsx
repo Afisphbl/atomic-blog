@@ -4,7 +4,7 @@ import Results from "../Result/Result";
 import SearchPosts from "../SearchPost/SearchPost";
 
 function Header() {
-  const { posts, handleClearPosts, searchQuery, setSearchQuery } = usePosts();
+  const { handleClearPosts } = usePosts();
 
   return (
     <header>
@@ -12,11 +12,8 @@ function Header() {
         <span>⚛️</span>The Atomic Blog
       </h1>
       <div>
-        <Results posts={posts} />
-        <SearchPosts
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-        />
+        <Results />
+        <SearchPosts />
         <button onClick={handleClearPosts}>Clear posts</button>
       </div>
     </header>
