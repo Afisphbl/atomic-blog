@@ -3,7 +3,7 @@ import { faker } from "@faker-js/faker";
 import { usePosts } from "./context/PostContext";
 import CreateRandomPost from "./components/CreateRandomPost/CreateRandomPost";
 import Header from "./components/Header/Header";
-// import Main from "./components/Main/Main";
+import Main from "./components/Main/Main";
 
 function App() {
   const { isFakeDark, setIsFakeDark } = usePosts();
@@ -18,7 +18,7 @@ function App() {
       </button>
 
       <Header />
-      {/* <Main posts={searchedPosts} onAddPost={handleAddPost} /> */}
+      <Main />
       <Archive />
       <Footer />
     </section>
