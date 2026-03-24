@@ -1,7 +1,7 @@
 import { usePosts } from "../../context/PostContext";
 
 export default function List() {
-  const { posts } = usePosts();
+  const { searchedPosts: posts } = usePosts();
   return (
     <ul>
       {posts.map((post, i) => (
