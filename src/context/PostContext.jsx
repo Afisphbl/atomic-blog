@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { faker } from "@faker-js/faker";
 import CreateRandomPost from "../components/CreateRandomPost/CreateRandomPost";
 
@@ -9,7 +9,6 @@ export const PostsProvider = ({ children }) => {
     Array.from({ length: 30 }, () => CreateRandomPost({ faker })),
   );
   const [searchQuery, setSearchQuery] = useState("");
-  const [isFakeDark, setIsFakeDark] = useState(false);
 
   // Derived state. These are the posts that will actually be displayed
   const searchedPosts =
@@ -29,14 +28,6 @@ export const PostsProvider = ({ children }) => {
     setPosts([]);
   }
 
-  // Whenever `isFakeDark` changes, we toggle the `fake-dark-mode` class on the HTML element (see in "Elements" dev tool).
-  useEffect(
-    function () {
-      document.documentElement.classList.toggle("fake-dark-mode", isFakeDark);
-    },
-    [isFakeDark],
-  );
-
   const value = {
     posts,
     handleAddPost,
@@ -44,8 +35,6 @@ export const PostsProvider = ({ children }) => {
     searchQuery,
     searchedPosts,
     setSearchQuery,
-    isFakeDark,
-    setIsFakeDark,
   };
 
   return (
